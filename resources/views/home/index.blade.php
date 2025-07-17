@@ -21,7 +21,6 @@
    
      @include('home.gallery')
    
-     @include('home.contact')
 
     @include('home.footer')
  
