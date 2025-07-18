@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +30,5 @@ Route::get('/deleteRoom/{id}', [AdminController::class, 'deleteRoom']);
 Route::get('/updateRoom/{id}', [AdminController::class, 'updateRoom']);
 
 Route::post('/upRoom/{id}', [AdminController::class, 'upRoom']);
+
+Route::get('/detailsRomm/{id}', [HomeController::class, 'detailsRomm']);

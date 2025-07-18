@@ -14,9 +14,9 @@
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="about.html"> about</a></li>
-                        <li><a href="room.html">Our Room</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="#"> about</a></li>
+                        <li><a href="#">Our Room</a></li>
+                        <li><a href="#">Gallery</a></li>
                      </ul>
                   </div>
                   <div class="col-md-4">
@@ -36,3 +36,10 @@
             </div>
          </div>
       </footer>
+       <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
