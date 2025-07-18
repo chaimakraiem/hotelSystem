@@ -17,7 +17,6 @@ Les administrateurs peuvent gérer les chambres et suivre les réservations.
 ### ✅ Administrateur
 - Ajouter / Modifier / Supprimer des chambres
 - Voir toutes les chambres disponibles
-- Gérer les réservations depuis le tableau de bord admin
 
 ---
 

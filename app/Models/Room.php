@@ -15,4 +15,10 @@ class Room extends Model
         'image',
         'disponibilite',
     ];
+
+    public function reservations()
+{
+    return $this->hasMany(Reservation::class);
+}
+
 }

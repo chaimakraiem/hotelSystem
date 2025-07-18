@@ -19,7 +19,7 @@
    
      @include('home.room')
    
-     @include('home.gallery')
+     @include('home.mes_reservations')
    
 
     @include('home.footer')

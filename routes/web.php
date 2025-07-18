@@ -32,3 +32,9 @@ Route::get('/updateRoom/{id}', [AdminController::class, 'updateRoom']);
 Route::post('/upRoom/{id}', [AdminController::class, 'upRoom']);
 
 Route::get('/detailsRomm/{id}', [HomeController::class, 'detailsRomm']);
+
+Route::post('/addReservation/{id}', [HomeController::class, 'addReservation']);
+
+Route::get('/mes-reservations', [HomeController::class, 'mesReservations'])->middleware('auth');
+
+

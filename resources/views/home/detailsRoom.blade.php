@@ -43,7 +43,7 @@
                             <h3 class="card-title">{{ $room->title }}</h3>
                             <p class="card-text">{{ $room->description }}</p>
                             <p><strong>Prix :</strong> {{ $room->prix }} TND / nuit</p>
-                            <p><strong>Disponibilité :</strong> 
+                            <p><strong>Disponibilité actuelle :</strong> 
                                 {{ $room->disponibilite == 1 ? 'Oui' : 'Non' }}
                             </p>
                         </div>
@@ -54,17 +54,58 @@
                 <div class="col-md-5">
                     <div class="form-box shadow-sm">
                         <h4>Réserver cette chambre</h4>
-                        <form action="" method="POST">
+
+                        @if (session('message'))
+                            <div class="alert alert-info mt-2">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
+                        @if ($errors->any())
+                            <ul class="mb-3">
+                                @foreach ($errors->all() as $error)
+                                    <li style="color:red">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+
+                        <form id="reservationForm"  action="{{ url('addReservation', $room->id) }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="date" class="form-label">Date de réservation</label>
-                                <input type="date" class="form-control" name="date_reservation" required>
+                                <label class="form-label">Nom</label>
+                                <input type="text" name="name" 
+                                @if(Auth::id()) 
+                                value="{{Auth::user()->name}}"
+                                @endif
+                                class="form-control" required>
                             </div>
+
                             <div class="mb-3">
-                                <label for="nights" class="form-label">Nombre de nuits</label>
-                                <input type="number" class="form-control" name="nights" min="1" required>
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" 
+                                @if(Auth::id()) 
+                                value="{{Auth::user()->email}}"
+                                @endif
+                                class="form-control" required>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Confirmer la réservation</button>
+
+                            <div class="mb-3">
+                                <label class="form-label">Téléphone</label>
+                                <input type="tel" name="phone" id="phone" class="form-control" required pattern="[0-9]{8,15}">
+                                <span id="phoneError" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Date de début</label>
+                                <input type="date" name="start_date" id="startdate" class="form-control" required min="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Date de fin</label>
+                                <input type="date" name="end_date" id="enddate" class="form-control" required>
+                            </div>
+
+                            <input type="submit" class="btn btn-primary w-100" value="Réserver">
                         </form>
                     </div>
                 </div>
@@ -74,6 +115,18 @@
 
     <!-- Footer -->
     @include('home.footer')
+
+    <!-- Script validation date -->
+    <script>
+        <script>
+    // Appliquer la date d'aujourd'hui comme valeur min pour le champ startdate
+    window.onload = function () {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("startdate").setAttribute('min', today);
+    };
+</script>
+
+    </script>
 
 </body>
 </html>

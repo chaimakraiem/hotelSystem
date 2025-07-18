@@ -24,7 +24,7 @@
                                  <a class="nav-link" href="#">Our room</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="#">Gallery</a>
+                                 <a class="nav-link" href="{{url('mesReservations')">mes reservation</a>
                               </li>
 
                                  @if (Route::has('login'))
