@@ -15,6 +15,16 @@ use App\Http\Controllers\AdminController;
 */
 Route::get('/', [AdminController::class, 'home']);
 
-
 Route::get('/home', [AdminController::class, 'index'])->middleware('auth')->name('home');
 
+Route::get('/addRoom', [AdminController::class, 'addRoom']);
+
+Route::post('/storeRoom', [AdminController::class, 'storeRoom']);
+
+Route::get('/dispalyRoom', [AdminController::class, 'dispalyRoom']);
+
+Route::get('/deleteRoom/{id}', [AdminController::class, 'deleteRoom']);
+
+Route::get('/updateRoom/{id}', [AdminController::class, 'updateRoom']);
+
+Route::post('/upRoom/{id}', [AdminController::class, 'upRoom']);
